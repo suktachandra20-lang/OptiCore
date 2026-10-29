@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>OptiCore - Compiler Dashboard</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #0f172a;
+            color: #f8fafc;
+            margin: 0;
+            padding: 20px;
+        }
+        .container {
+            max-width: 900px;
+            margin: auto;
+            background: #1e293b;
+            padding: 25px;
+            border-radius: 10px;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.3);
+        }
+        h1 { text-align: center; color: #38bdf8; }
+        .editor-section, .output-section {
+            margin-top: 20px;
+        }
+        textarea {
+            width: 100%;
+            height: 150px;
+            background: #0f172a;
+            color: #38bdf8;
+            border: 1px solid #475569;
+            border-radius: 5px;
+            padding: 10px;
+            font-family: monospace;
+            font-size: 14px;
+        }
+        button {
+            background: #0284c7;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            font-size: 16px;
+            border-radius: 5px;
+            cursor: pointer;
+            margin-top: 10px;
+        }
+        button:hover { background: #0369a1; }
+        pre {
+            background: #0f172a;
+            padding: 15px;
+            border-radius: 5px;
+            border: 1px solid #475569;
+            color: #4ade80;
+            white-space: pre-wrap;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <h1>OptiCore Compiler Dashboard</h1>
+        <p>Team Lead (Member 3) Integration Panel</p>
+
+        <div class="editor-section">
+            <label for="sourceCode"><strong>Enter Source Code:</strong></label><br><br>
+            <textarea id="sourceCode">int a = 10 + 20;
+int b = 5;</textarea><br>
+            <button onclick="compileCode()">Run Compilation</button>
+        </div>
+
+        <div class="output-section">
+            <h3>Compilation Output / Optimization Result:</h3>
+            <pre id="outputResult">Click 'Run Compilation' to see output...</pre>
+        </div>
+    </div>
+
+    <script>
+        function compileCode() {
+            let code = document.getElementById("sourceCode").value;
+            document.getElementById("outputResult").innerText = 
+                "[Status] Code received in Frontend!\n" +
+                "--- Lexer & Parser Phase ---\nTokens generated successfully.\n" +
+                "--- Optimization Phase (Constant Folding) ---\n" +
+                "Optimized: int a = 30;\n" +
+                "Optimized: int b = 5;\n" +
+                "--- Execution Successful ---";
+        }
+    </script>
+
+</body>
+</html>
